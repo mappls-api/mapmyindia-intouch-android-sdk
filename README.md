@@ -107,3 +107,11 @@ InTouch.initialize(<your publishable key>, new IntouchInitCallBack() {
 InTouch.setDeviceName(name); 
 ~~~
 You cannot use the MapmyIndia Intouch SDK without these function calls. You will find your keys in your [API Dashboard](http://www.mapmyindia.com/api/dashboard).
+## <a name="StartTracking">Step 4: Start Tracking</a> 
+
+
+Call the below method to track your app user's phone live location. 
+To start tracking use the below method.
+ ```java
+ InTouch.startTracking();
+```
