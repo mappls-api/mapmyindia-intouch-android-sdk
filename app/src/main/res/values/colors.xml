@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryDark">#212121</color>
+    <color name="colorAccent">#212121</color>
+    <color name="bgBottomNavigation">#212121</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorGrey">#ebedef</color>
+    <color name="textColor">#212121</color>
+    <color name="textBlue">#1f75dc</color>
+    <color name="intouchYellow">#fdaa40</color>
+    <color name="intouchBlue">#0b1026</color>
+    <color name="color_nav_default">#babbc2</color>
+    <color name="colorBlack">#000000</color>
+</resources>

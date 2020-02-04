@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Intouch Sdk Sample</string>
+    <string name="txt_initialize_intouch_sdk">Initialize Intouch Sdk</string>
+    <string name="txt_devices">Devices</string>
+    <string name="txt_drives">Drives</string>
+    <string name="txt_location_events">Location Events</string>
+    <string name="txt_start_tracking">Start Tracking</string>
+    <string name="txt_refresh_list">Refresh List</string>
+    <string name="txt_hint_key">Enter your JWT key here</string>
+    <string name="txt_hint_device_name">Device Name</string>
+    <string name="txt_hint_device_id">Device Id</string>
+    <string name="txt_hint_vehicle_type">Vehicle Type</string>
+    <string name="txt_hint_gender">Gender</string>
+    <string name="txt_select_gender">Select Gender</string>
+    <string name="txt_select_vehicle_type">Select Vehicle Type</string>
+    <string name="txt_select_pooling_frequency">Select Pooling Frequency</string>
+    <string name="txt_redirect_to_intouch">Redirect To InTouch</string>
+    <string name="txt_stop_tracking">Stop Tracking</string>
+    <string name="txt_tracking">Tracking</string>
+    <string name="txt_select_priority">Tracking Mode</string>
+    <string name="txt_intouch_devices">Intouch Devices</string>
+    <string name="splash_screen">Splash Screen</string>
+    <string name="des_intouch_logo">Intouch Logo</string>
+    <string name="txt_initialize">Initialize</string>
+
+    <string-array name="vehicle_type">
+        <item>Pedestrian</item>
+        <item>2 wheeler</item>
+        <item>3 wheeler</item>
+        <item>4 wheeler</item>
+    </string-array>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="priority">
+        <item>Fast</item>
+        <item>Slow</item>
+        <item>Optimal</item>
+    </string-array>
+    <string-array name="sensor_delay_frequency">
+        <item>Fastest(0 ms)</item>
+        <item>Game(20000 ms)</item>
+        <item>UI(66667 ms)</item>
+        <item>Normal(200000 ms)</item>
+    </string-array>
+</resources>
