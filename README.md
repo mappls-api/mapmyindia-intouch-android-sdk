@@ -39,8 +39,8 @@ This guide allows you to add a live location tracking to an Android app. [Androi
 ## Integrate the Intouch SDK
 -  [Add Intouch SDK](#AddIntouchSDK)
 -  [Start tracking](#StartTracking)
-- [Intouch Telematics API](#IntouchTelematicsAPI)
--  [Utility methods (optional)](#UtilityMethods)
+- [Intouch Telematics API](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki#-intouch-telematics-apis)
+-  [Utility methods](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki/Utility-Methods)
 
 ## Step 1: Setup a project
 
