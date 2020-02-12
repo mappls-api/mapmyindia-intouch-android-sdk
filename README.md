@@ -73,7 +73,7 @@ repositories {
 
 //Add Intouch as a dependency
 dependencies {
-    implementation 'com.mapmyindia.sdk:intouch-sdk:1.0.0-alpha01'
+    implementation 'com.mapmyindia.sdk:intouch-sdk:1.0.0-alpha03'
     ...
 }
 ```
