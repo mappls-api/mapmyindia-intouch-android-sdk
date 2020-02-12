@@ -123,7 +123,7 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
         });
 
         mBinding.setOnClickLastState(v -> {
-            viewModel.getLastDeviceState(192340L, null).observe(getViewLifecycleOwner(), response -> {
+            viewModel.getLastDeviceState(<Your device id>, <Your tracking code>).observe(getViewLifecycleOwner(), response -> {
                 Timber.d("%s", new Gson().toJson(response).toString());
             });
         });
