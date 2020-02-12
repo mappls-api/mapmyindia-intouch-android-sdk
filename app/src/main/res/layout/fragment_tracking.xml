@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:bind="http://schemas.android.com/apk/res/android">
+    xmlns:bind="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -36,6 +36,10 @@
 
         <variable
             name="onClickRedirect"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onClickLastState"
             type="android.view.View.OnClickListener" />
     </data>
 
@@ -71,12 +75,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_huge"
+                android:contentDescription="Intouch Logo"
                 android:src="@drawable/in_touch_logo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="Intouch Logo" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayoutVehicleType"
@@ -183,24 +187,38 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPriority" />
 
-
+            <TextView
+                android:id="@+id/button_last_device_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:background="@drawable/text_field_border"
+                android:fontFamily="sans-serif-medium"
+                android:onClick="@{onClickLastState}"
+                android:padding="@dimen/padding_normal"
+                android:text="@string/txt_last_device_state"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_start_beacon" />
 
             <TextView
                 android:id="@+id/button_redirect_to_intouch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="@color/textBlue"
-                android:onClick="@{onClickRedirect}"
-                android:text="@string/txt_redirect_to_intouch"
-                android:textSize="@dimen/text_size_medium"
+                android:drawableStart="@drawable/open_in_new_24_px"
                 android:drawableLeft="@drawable/open_in_new_24_px"
                 android:drawablePadding="@dimen/padding_small_8dp"
+                android:fontFamily="sans-serif-medium"
+                android:onClick="@{onClickRedirect}"
+                android:text="@string/txt_redirect_to_intouch"
+                android:textColor="@color/textBlue"
+                android:textSize="@dimen/text_size_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_start_beacon"
-                android:drawableStart="@drawable/open_in_new_24_px" />
+                app:layout_constraintTop_toBottomOf="@+id/button_last_device_state" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

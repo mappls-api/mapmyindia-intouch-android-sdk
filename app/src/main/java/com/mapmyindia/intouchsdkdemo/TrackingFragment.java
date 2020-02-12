@@ -12,9 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.gson.Gson;
 import com.mapmyindia.intouchsdkdemo.databinding.FragmentTrackingBinding;
+import com.mapmyindia.intouchsdkdemo.device.DeviceViewModel;
 import com.mapmyindia.intouchsdkdemo.utils.PreferenceHelper;
 import com.mapmyindia.sdk.intouch.InTouch;
 import com.mmi.beacon.Config;
@@ -22,11 +26,14 @@ import com.mmi.beacon.MapmyIndiaBeacon;
 import com.mmi.beacon.TrackingStateObserver;
 import com.mmi.beacon.utils.TrackingError;
 
+import timber.log.Timber;
+
 public class TrackingFragment extends Fragment implements TrackingStateObserver.OnTrackingStateChangeListener {
     private FragmentTrackingBinding mBinding;
     private int mPrioritySelectedIndex = -1;
     private int mGenderSelectedIndex = -1;
     private int mVehicleTypeSelectedIndex = -1;
+    private DeviceViewModel viewModel;
 
     public static TrackingFragment newInstance() {
 
@@ -41,6 +48,7 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
     public void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(this).get(DeviceViewModel.class);
     }
 
     @Nullable
@@ -112,6 +120,12 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
         });
         mBinding.setOnClickRedirect(v -> {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://intouch.mapmyindia.com")));
+        });
+
+        mBinding.setOnClickLastState(v -> {
+            viewModel.getLastDeviceState(192340L, null).observe(getViewLifecycleOwner(), response -> {
+                Timber.d("%s", new Gson().toJson(response).toString());
+            });
         });
         return mBinding.getRoot();
     }

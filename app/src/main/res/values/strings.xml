@@ -15,6 +15,7 @@
     <string name="txt_select_vehicle_type">Select Vehicle Type</string>
     <string name="txt_select_pooling_frequency">Select Pooling Frequency</string>
     <string name="txt_redirect_to_intouch">Redirect To InTouch</string>
+    <string name="txt_last_device_state">Last Device State</string>
     <string name="txt_stop_tracking">Stop Tracking</string>
     <string name="txt_tracking">Tracking</string>
     <string name="txt_select_priority">Tracking Mode</string>
