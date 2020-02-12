@@ -7,11 +7,11 @@ Using this SDK, our app shall fetch the live location from the end user mobile p
 
 You will get seemless location benifits which caterted to different domains like logistics, delivery tracking, Employee tracking, live location sharing etc.
 
--  [Publishable Key](#publishablekey)– Please contact apisupport@mapmyindia.com to get your Publishable Key.
--   [Quickstart](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk)–Start with a ready-to-go app
--   [Integrate the SDK](#AddIntouchSDK)–Integrate the SDK into your app
--   [Dashboard](https://intouch.mapmyindia.com/nextgen/#/home/dashboard)–See all your devices' locations on MapmyIndia Intouch Dashboard
--   [FAQs]()–Frequently asked questions
+-  [Publishable Key](#publishablekey): Please contact apisupport@mapmyindia.com to get your Publishable Key.
+-   [Quick Start](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk#intouchdemo-app): Start with a ready-to-go app
+-   [Integrate the SDK](#AddIntouchSDK): Integrate the SDK into your app
+-   [Dashboard](https://intouch.mapmyindia.com/nextgen/#/home/dashboard): See all your devices' locations on MapmyIndia Intouch Dashboard
+-   [FAQs (W.I.P)](): Frequently asked questions
 
 ## Get your Publishable Key. 
 
@@ -24,7 +24,7 @@ After getting the publishable key, you can [start with the IntouchDemo app](http
 ## <a name= "IntouchDemoApp">IntouchDemo app</a>
 This guide allows you to add a live location tracking to an Android app. [Android Studio](https://developer.android.com/studio/index.html) is the recommended development environment for building an app with the MapmyIndia Intouch SDK for Android.
 #### Step 1. Download the IntouchDemo App.
-[Click here](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk) to download the IntouchDemo App Project. And then open this project in [Android Studio](https://developer.android.com/studio/index.html)
+[Click here](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/archive/master.zip) to download the IntouchDemo App Project. Open this project in [Android Studio](https://developer.android.com/studio/index.html)
 
 #### Step 2. Set your Publishable key
 
@@ -32,15 +32,15 @@ This guide allows you to add a live location tracking to an Android app. [Androi
     
 2.  Run project on your device use simulator instance.
     
-3.  Go through one-time permission flow (applicable for Android M and later).
+3.  Go through run-time [permission flow](https://developer.android.com/training/permissions/requesting) (applicable for Android M and later).
 
 #### Step 3. Check your location on the Intouch [dashboard](https://intouch.mapmyindia.com/nextgen)
 
 ## Integrate the Intouch SDK
 -  [Add Intouch SDK](#AddIntouchSDK)
 -  [Start tracking](#StartTracking)
-- [Intouch Telematics API](#IntouchTelematicsAPI)
--  [Utility methods (optional)](#UtilityMethods)
+- [Intouch Telematics APIs](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki#-intouch-telematics-apis)
+-  [Utility methods](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki/Utility-Methods)
 
 ## Step 1: Setup a project
 
@@ -73,7 +73,7 @@ repositories {
 
 //Add Intouch as a dependency
 dependencies {
-    implementation 'com.mapmyindia.sdk:intouch-sdk:1.0.0-alpha01'
+    implementation 'com.mapmyindia.sdk:intouch-sdk:1.0.0-alpha03'
     ...
 }
 ```
