@@ -64,11 +64,13 @@ The next few sections contain the code samples that you may add to your activity
 Add following lines to your applications  `build.gradle`:
 ```java
 // Import the SDK within your repositories block
-repositories {
-  maven {
-		url 'https://maven.mapmyindia.com/repository/mapmyindia/'
-	}
-    ...
+allprojects {
+   repositories {
+      maven {
+	url 'https://maven.mapmyindia.com/repository/mapmyindia/'
+      }
+	    ...
+   }
 }
 
 //Add Intouch as a dependency
