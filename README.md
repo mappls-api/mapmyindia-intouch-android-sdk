@@ -82,9 +82,25 @@ dependencies {
     ...
 }
 ```
+```
+ android {
+  compileSdkVersion 29  
+  buildToolsVersion "29.0.2"
+     defaultConfig {
+     minSdkVersion 16  
+     targetSdkVersion 29
+          }
+    }
+```
+
+
+
+
+
 ## Step 3: Initialize InTouch SDK
 
 Initialize the SDK with your [Publishable Key](Test)
+
 ~~~xml
 // Add the following to your AndroidManifest.xml file.
 
