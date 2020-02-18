@@ -1,3 +1,4 @@
+
 # MapmyIndia Intouch Android SDK
 ## Introduction
 
@@ -64,13 +65,15 @@ The next few sections contain the code samples that you may add to your activity
 Add following lines to your applications  `build.gradle`:
 ```java
 // Import the SDK within your repositories block
-allprojects {
-   repositories {
-      maven {
-	url 'https://maven.mapmyindia.com/repository/mapmyindia/'
-      }
-	    ...
-   }
+allprojects {  
+    repositories {  
+        google()  
+        jcenter()  
+        maven {  
+            url 'https://maven.mapmyindia.com/repository/mapmyindia/'  
+  
+  }  
+    }  
 }
 
 //Add Intouch as a dependency
@@ -117,3 +120,42 @@ To start tracking use the below method.
  ```java
  InTouch.startTracking();
 ```
+## Step 3: Initialize InTouch SDK
+
+Initialize the SDK with your [Publishable Key](Test)
+~~~xml
+// Add the following to your AndroidManifest.xml file.
+
+<uses-permission android:name="android.permission.INTERNET" />
+
+<provider
+    android:name="com.mapmyindia.sdk.intouch.InTouchProvider"
+    android:authorities="${applicationId}.InTouchProvider"
+    android:enabled="true"
+    android:exported="false" />
+~~~
+~~~java
+InTouch.initialize(<your publishable key>, new IntouchInitCallBack() {
+	@Override
+	public void onSuccess() {
+	                       
+	}
+	@Override
+	public void onError(String reason, String identifier, String description) {
+	                           
+	}
+});
+
+// set your device name for tracking
+InTouch.setDeviceName(name); 
+~~~
+You cannot use the MapmyIndia Intouch SDK without these function calls. You will find your keys in your [API Dashboard](http://www.mapmyindia.com/api/dashboard).
+## <a name="StartTracking">Step 4: Start Tracking</a> 
+
+
+Call the below method to track your app user's phone live location. 
+To start tracking use the below method.
+ ```java
+ InTouch.startTracking();
+```
+
