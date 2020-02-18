@@ -90,10 +90,6 @@ dependencies {
    
 ```
 
-
-
-
-
 ## Step 3: Initialize InTouch SDK
 
 Initialize the SDK with your [Publishable Key](Test)
