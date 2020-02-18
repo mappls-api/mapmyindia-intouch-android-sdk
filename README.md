@@ -82,15 +82,9 @@ dependencies {
     ...
 }
 ```
-```
- android {
-  compileSdkVersion 29  
-  buildToolsVersion "29.0.2"
-     defaultConfig {
-     minSdkVersion 16  
-     targetSdkVersion 29
-          }
-    }
+// Required Minimum sdk version
+ minSdkVersion 16  
+   
 ```
 
 
