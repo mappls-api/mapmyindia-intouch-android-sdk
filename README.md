@@ -85,7 +85,7 @@ dependencies {
 }
 ```
 ```
-// Required Minimum sdk version
+ Required Minimum sdk version
  minSdkVersion 16  
    
 ```
