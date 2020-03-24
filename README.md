@@ -78,7 +78,7 @@ allprojects {
 //Add Intouch as a dependency
 
 dependencies {
-    implementation 'com.mapmyindia.sdk:intouch-sdk:1.0.0-alpha03'
+    implementation 'com.mapmyindia.sdk:intouch-sdk:1.0.0-alpha05'
     ...
 }
 ```
