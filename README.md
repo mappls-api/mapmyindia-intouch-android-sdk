@@ -5,7 +5,7 @@ MapmyIndia Intouch  will enable the live tracking functionality in your mobile a
 
 Using this SDK, your app will fetch the live location from the end user mobile phone at the predefined condition based on the movement of the user, or fixed time interval or the combination of both. You can customize the data polling conditions. You can get the details about your other telematics device live location and analytics around it.
 
-You will get seemless location benefits which cater to different domains like logistics, delivery tracking, Employee tracking, live location sharing etc.
+You will get seamless location benefits which cater to different domains like logistics, delivery tracking, Employee tracking, live location sharing etc.
 
 -  [Publishable Key](#publishablekey): Please contact apisupport@mapmyindia.com to get your Publishable Key.
 -   [Quick Start](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk#intouchdemo-app): Start with a ready-to-go app
