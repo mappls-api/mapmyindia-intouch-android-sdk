@@ -15,14 +15,14 @@ You will get seamless location benefits which cater to different domains like lo
 
 ## Get your Publishable Key. 
 
-We use your Publishable key to identify your account details and assign all your users device under single account. 
+We use your Publishable key to identify your account details and assign all your user's device under single account. 
 
 Please contact [apisupport@mapmyindia.com](mailto:apisupport@mapmyindia.com) to get your Publishable Key.
 
 After getting the publishable key, you can [start with the IntouchDemo app](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk), or [Integrate the Intouch SDK](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk) in your app.
 
 ## <a name= "IntouchDemoApp">IntouchDemo app</a>
-This guide allows you to add a live location tracking to an Android app. [Android Studio](https://developer.android.com/studio/index.html) is the recommended development environment for building an app with the MapmyIndia Intouch SDK for Android.
+This guide allows you to add live location tracking to an Android app. [Android Studio](https://developer.android.com/studio/index.html) is the recommended development environment for building an app with the MapmyIndia Intouch SDK for Android.
 #### Step 1. Download the IntouchDemo App.
 [Click here](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/archive/master.zip) to download the IntouchDemo App Project. Open this project in [Android Studio](https://developer.android.com/studio/index.html)
 
@@ -47,16 +47,16 @@ This guide allows you to add a live location tracking to an Android app. [Androi
 1.  Start Android Studio.
 2.  Create a new project as follows:
     -   If you see the  **Welcome to Android Studio**  dialog, choose  **Start a new Android Studio project**, available under 'Quick Start' on the right of the dialog.
-    -   Otherwise, click  **File**  in the Android Studio menu bar, click  **New**,->  **New Project**.
+    -   Otherwise, click  **File**  in the Android Studio menu bar, click  **New**-> **New Project**.
     -   Select the form factors you need for your app. If you're not sure what you need, just select  **Phone and Tablet**.
     -   Select  **Add No Activity**  and click  **Next**.
-3.  Enter your app name, package name, project location, language and minimum API version as prompted. Then click  **Next**.
-4.  Create a  **Basic Activity**  in the 'Add an activity to Mobile' dialog. Then click  **Next**.
-5.  Enter the activity name, layout name and title as prompted. Then click  **Finish**.
+3.  Enter your app name, package name, project location, language and minimum API version as prompted. Click  **Next**.
+4.  Create a  **Basic Activity**  in the 'Add an activity to Mobile' dialog. Click  **Next**.
+5.  Enter the activity name, layout name and title as prompted. Click  **Finish**.
 
 Android Studio starts Gradle and builds your project. This may take a few seconds. For more information about creating a project in Android Studio, see the  [Android Studio documentation](https://developer.android.com/studio/projects/create-project.html).
 
-The next few sections contain the code samples that you may add to your activity's java file as well as its xml layout file for creating an app with MapmyIndia Intouch SDK for live tracking.
+The next few sections contain the code samples that you need to add to your activity's java file as well as its xml layout file for creating an app with MapmyIndia Intouch SDK for live tracking.
 
 
 ## <a name="AddIntouchSDK">Step 2. Add Intouch SDK</a>
