@@ -105,11 +105,13 @@ Initialize the SDK with your [Publishable Key](Test)
 InTouch.initialize(<your publishable key>, new InTouchInitCallBack() {
 	@Override
 	public void onSuccess() {
-	                       
+	                  
+			  //write your code here                      
 	}
 	@Override
 	public void onError(String reason, String identifier, String description) {
-	                           
+	                  
+			  //write your code here
 	}
 });
 
