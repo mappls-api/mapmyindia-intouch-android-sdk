@@ -20,7 +20,7 @@ We use your Publishable key to identify your account details and assign all your
 
 Please contact [apisupport@mapmyindia.com](mailto:apisupport@mapmyindia.com) to get your Publishable Key.
 
-After getting the publishable key, you can [start with the InTouchDemo app](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk), or [Integrate the InTouch SDK](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk) in your app.
+After getting the publishable key, you can [start with the InTouchDemo app](#InTouchDemoApp), or [Integrate the InTouch SDK](#IntegrateIntouchSDK) in your app.
 
 ## <a name= "InTouchDemoApp">InTouchDemo app</a>
 This guide allows you to add live location tracking to an Android app. [Android Studio](https://developer.android.com/studio/index.html) is the recommended development environment for building an app with the MapmyIndia InTouch SDK for Android.
