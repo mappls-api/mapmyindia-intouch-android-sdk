@@ -1,11 +1,12 @@
 # MapmyIndia Intouch Android SDK
 ## Introduction
 
-MapmyIndia InTouch  will enable the live tracking functionality in your mobile app and allows you to get the powerful features from InTouch IoT platform for your telematics devices. InTouch SDK for Android lets you easily add MapmyIndia Telematics cloud services to your own Android application. 
+MapmyIndia InTouch SDK provides the Real Time Location Tracking for your apps. Track your app user's live location with simplified SDK integration for android. Highly customizable to specific needs.
 
-Using this SDK, your app will fetch the live location from the end user mobile phone at the predefined condition based on the movement of the user, or fixed time interval or the combination of both. You can customize the data polling conditions. You can get the details about your other telematics device live location and analytics around it.
+InTouch SDK provides variety of events to provide better control and power to tracking. It gives readymade events to create Geo-fence, Event Alerts and Trails of Telematics/phone devices. Get location benefits catered to different domains like Logistics, delivery tracking, employee tracking, live location sharing etc.
 
-You will get seamless location benefits which cater to different domains like logistics, delivery tracking, Employee tracking, live location sharing etc.
+You can begin with [InTouch Demo App](#InTouchDemoApp) for your use cases. If you have an app already and want to leverage powerful features of InTouch,  [Integrate the InTouch SDK](#IntegrateIntouchSDK) with your application.
+
 
 -  [Publishable Key](#publishablekey): Please contact apisupport@mapmyindia.com to get your Publishable Key.
 -   [Quick Start](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk#intouchdemo-app): Start with a ready-to-go app
