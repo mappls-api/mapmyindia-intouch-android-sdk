@@ -1,3 +1,4 @@
+
 # MapmyIndia Intouch Android SDK
 ## Introduction
 
@@ -93,31 +94,23 @@ Initialize the SDK with your [Publishable Key](Test)
 
 ~~~xml
 // Add the following to your AndroidManifest.xml file.
-
 <uses-permission android:name="android.permission.INTERNET" />
-
-<provider
-    android:name="com.mapmyindia.sdk.intouch.InTouchProvider"
-    android:authorities="${applicationId}.InTouchProvider"
-    android:enabled="true"
-    android:exported="false" />
 ~~~
 ~~~java
-InTouch.initialize(<your publishable key>, new InTouchInitCallBack() {
+// IAuthListener - returns authorization results in the forms of callbacks.
+InTouch.initialize(<your publishable key>, new IAuthListener() {
 	@Override
 	public void onSuccess() {
-	                  
 			  //write your code here                      
 	}
 	@Override
 	public void onError(String reason, String identifier, String description) {
-	                  
-			  //write your code here
+	         // reason gives the error type. 
+            // errorIdentifier gives information about error code. 
+           // errorDescription gives a message for a particular error.
 	}
 });
 
-// set your device name for tracking
-InTouch.setDeviceName(name); 
 ~~~
 
 
