@@ -7,10 +7,6 @@
     <data>
 
         <variable
-            name="isEnabled"
-            type="Boolean" />
-
-        <variable
             name="isBeaconEnabled"
             type="Boolean" />
 
@@ -23,24 +19,9 @@
             type="android.view.View.OnClickListener" />
 
         <variable
-            name="onClickPriority"
-            type="android.view.View.OnClickListener" />
-
-        <variable
-            name="onClickGender"
-            type="android.view.View.OnClickListener" />
-
-        <variable
-            name="onClickVehicleType"
-            type="android.view.View.OnClickListener" />
-
-        <variable
             name="onClickRedirect"
             type="android.view.View.OnClickListener" />
 
-        <variable
-            name="onClickLastState"
-            type="android.view.View.OnClickListener" />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -48,21 +29,18 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorWhite">
+            android:background="@color/colorWhite"
+            android:padding="@dimen/padding_normal">
 
 
             <TextView
                 android:id="@+id/txt_device_code"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_normal"
-                android:layout_marginLeft="@dimen/spacing_normal"
-                android:layout_marginTop="@dimen/spacing_normal"
-                android:layout_marginEnd="@dimen/spacing_normal"
-                android:layout_marginRight="@dimen/spacing_normal"
+
                 android:textSize="20sp"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -74,103 +52,27 @@
                 android:id="@+id/intouch_logo_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/spacing_huge"
-                android:contentDescription="Intouch Logo"
-                android:src="@drawable/in_touch_logo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:contentDescription="@string/intouch_logo"
+                android:src="@drawable/in_touch_logo" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayoutVehicleType"
-                style="@style/TextInputBoxTheme"
-                isEnable="@{!isBeaconEnabled,  default = false}"
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_normal"
-                android:layout_marginLeft="@dimen/spacing_normal"
-                android:layout_marginTop="@dimen/spacing_huge"
-                android:layout_marginEnd="@dimen/spacing_normal"
-                android:layout_marginRight="@dimen/spacing_normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/intouch_logo_img">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text_vehicle_type"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorWhite"
-                    android:drawableEnd="@drawable/keyboard_arrow_down_24_px_4"
-                    android:drawableRight="@drawable/keyboard_arrow_down_24_px_4"
-                    android:focusable="false"
-                    android:hint="@string/txt_hint_vehicle_type"
-                    android:inputType="number"
-                    android:onClick="@{onClickVehicleType}" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayoutGender"
-                style="@style/TextInputBoxTheme"
-                isEnable="@{!isBeaconEnabled,  default = false}"
-                isVisible="@{!isEnabled, default = true}"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_normal"
-                android:layout_marginLeft="@dimen/spacing_normal"
-                android:layout_marginTop="@dimen/spacing_normal"
-                android:layout_marginEnd="@dimen/spacing_normal"
-                android:layout_marginRight="@dimen/spacing_normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutVehicleType">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text_gender"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorWhite"
-                    android:drawableEnd="@drawable/keyboard_arrow_down_24_px_4"
-                    android:drawableRight="@drawable/keyboard_arrow_down_24_px_4"
-                    android:focusable="false"
-                    android:hint="@string/txt_hint_gender"
-                    android:inputType="number"
-                    android:onClick="@{onClickGender}" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayoutPriority"
-                style="@style/TextInputBoxTheme"
-                isEnable="@{!isBeaconEnabled,  default = false}"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_normal"
-                android:layout_marginLeft="@dimen/spacing_normal"
-                android:layout_marginTop="@dimen/spacing_normal"
-                android:layout_marginEnd="@dimen/spacing_normal"
-                android:layout_marginRight="@dimen/spacing_normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutGender">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/text_priority"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorWhite"
-                    android:drawableEnd="@drawable/keyboard_arrow_down_24_px_4"
-                    android:drawableRight="@drawable/keyboard_arrow_down_24_px_4"
-                    android:focusable="false"
-                    android:hint="@string/txt_select_priority"
-                    android:onClick="@{onClickPriority}" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:gravity="center"
+                android:text="@string/intouch_live_location_tracking"
+                android:textSize="@dimen/text_size_medium"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_below="@+id/intouch_logo_img"/>
 
             <Button
                 android:id="@+id/button_start_beacon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_large"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/spacing_large"
                 android:background="@drawable/text_field_border"
                 bind:buttonDrawableLeft="@{!isBeaconEnabled ? @drawable/play_arrow_24_px : @drawable/stop_24_px}"
                 android:drawablePadding="@dimen/padding_small_8dp"
@@ -183,31 +85,15 @@
                 bind:text="@{!isBeaconEnabled ? @string/txt_start_tracking : @string/txt_stop_tracking}"
                 android:textAllCaps="false"
                 android:textSize="@dimen/text_size_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPriority" />
-
-            <TextView
-                android:id="@+id/button_last_device_state"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:background="@drawable/text_field_border"
-                android:fontFamily="sans-serif-medium"
-                android:onClick="@{onClickLastState}"
-                android:padding="@dimen/padding_normal"
-                android:text="@string/txt_last_device_state"
-                android:textAllCaps="false"
-                android:textSize="@dimen/text_size_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_start_beacon" />
+                android:layout_centerInParent="true"/>
 
             <TextView
                 android:id="@+id/button_redirect_to_intouch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_large"
+                android:layout_below="@+id/button_start_beacon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/spacing_large"
                 android:drawableStart="@drawable/open_in_new_24_px"
                 android:drawableLeft="@drawable/open_in_new_24_px"
                 android:drawablePadding="@dimen/padding_small_8dp"
@@ -215,12 +101,9 @@
                 android:onClick="@{onClickRedirect}"
                 android:text="@string/txt_redirect_to_intouch"
                 android:textColor="@color/textBlue"
-                android:textSize="@dimen/text_size_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_last_device_state" />
+                android:textSize="@dimen/text_size_medium" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

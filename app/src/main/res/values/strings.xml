@@ -6,7 +6,7 @@
     <string name="txt_location_events">Location Events</string>
     <string name="txt_start_tracking">Start Tracking</string>
     <string name="txt_refresh_list">Refresh List</string>
-    <string name="txt_hint_key">Enter your JWT key here</string>
+    <string name="txt_hint_key">Enter your publishable key here</string>
     <string name="txt_hint_device_name">Device Name</string>
     <string name="txt_hint_device_id">Device Id</string>
     <string name="txt_hint_vehicle_type">Vehicle Type</string>
@@ -14,7 +14,7 @@
     <string name="txt_select_gender">Select Gender</string>
     <string name="txt_select_vehicle_type">Select Vehicle Type</string>
     <string name="txt_select_pooling_frequency">Select Pooling Frequency</string>
-    <string name="txt_redirect_to_intouch">Redirect To InTouch</string>
+    <string name="txt_redirect_to_intouch">Redirect to InTouch</string>
     <string name="txt_last_device_state">Last Device State</string>
     <string name="txt_stop_tracking">Stop Tracking</string>
     <string name="txt_tracking">Tracking</string>
@@ -23,6 +23,8 @@
     <string name="splash_screen">Splash Screen</string>
     <string name="des_intouch_logo">Intouch Logo</string>
     <string name="txt_initialize">Initialize</string>
+    <string name="intouch_logo">Intouch Logo</string>
+    <string name="intouch_live_location_tracking">Live Location Tracking</string>
 
     <string-array name="vehicle_type">
         <item>Pedestrian</item>

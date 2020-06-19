@@ -15,14 +15,15 @@ import androidx.fragment.app.Fragment;
 import com.mapmyindia.intouchsdkdemo.databinding.FragmentKeyInitializationBinding;
 import com.mapmyindia.intouchsdkdemo.utils.PreferenceHelper;
 import com.mapmyindia.sdk.intouch.InTouch;
-import com.mapmyindia.sdk.intouch.callbacks.IntouchInitCallBack;
-import com.mmi.beacon.utils.AutoStartPermissionHelper;
+import com.mapmyindia.sdk.intouch.callbacks.IAuthListener;
+import com.mapmyindia.sdk.tracking.utils.AutoStartPermissionHelper;
 
 import java.util.Objects;
 
 public class SetUpKeyFragment extends Fragment {
 
-    private final String PUBLISHABLE_KEY = "<Your Publishable Key>?";
+    //private final String PUBLISHABLE_KEY = "<Your Publishable Key>?";
+    private final String PUBLISHABLE_KEY = "Y2M5ZTI4MjEtNDQyZi00NDUxLWE0MWYtZDdhNDg2ZDE4ZDA3";
 
     private FragmentKeyInitializationBinding mBinding;
 
@@ -46,34 +47,31 @@ public class SetUpKeyFragment extends Fragment {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_key_initialization, container, false);
         mBinding.textKey.setText(PUBLISHABLE_KEY);
 
-        mBinding.setOnClickInItKey(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (getActivity() == null)
-                    return;
-                String key = mBinding.textKey.getText().toString();
-                if (!TextUtils.isEmpty(key)) {
-                    //InTouch.initialize(key, mBinding.textName.getText().toString(), this);
-                    InTouch.initialize(key, new IntouchInitCallBack() {
-                        @Override
-                        public void onSuccess() {
-                            if (getActivity() != null) {
-                                PreferenceHelper.getInstance().setInitializeSuccess(getActivity(), true);
-                                PreferenceHelper.getInstance().setDeviceName(getActivity(), Objects.requireNonNull(mBinding.textName.getText()).toString());
-                                ((MainActivity) getActivity()).replaceFragment(MainFragment.newInstance(), false);
-                            }
+        mBinding.setOnClickInItKey(v -> {
+            if (getActivity() == null)
+                return;
+            String key = mBinding.textKey.getText().toString();
+            if (!TextUtils.isEmpty(key)) {
+                //InTouch.initialize(key, mBinding.textName.getText().toString(), this);
+                InTouch.initialize(mBinding.textName.getText().toString(), key, new IAuthListener() {
+                    @Override
+                    public void onSuccess() {
+                        if (getActivity() != null) {
+                            PreferenceHelper.getInstance().setInitializeSuccess(getActivity(), true);
+                            PreferenceHelper.getInstance().setDeviceName(getActivity(), Objects.requireNonNull(mBinding.textName.getText()).toString());
+                            ((MainActivity) getActivity()).replaceFragment(MainFragment.newInstance(), false);
                         }
+                    }
 
-                        @Override
-                        public void onError(String reason, String errorIdentifier, String errorDescription) {
-                            if (getActivity() != null) {
-                                Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_SHORT).show();
-                            }
+                    @Override
+                    public void onError(String reason, String errorIdentifier, String errorDescription) {
+                        if (getActivity() != null) {
+                            Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_SHORT).show();
                         }
-                    });
-                } else {
-                    mBinding.textKey.setError("Invalid Key");
-                }
+                    }
+                });
+            } else {
+                mBinding.textKey.setError("Invalid Key");
             }
         });
         if (

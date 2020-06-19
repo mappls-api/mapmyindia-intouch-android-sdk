@@ -2,6 +2,7 @@
 <resources>
     <!-- typical spacing between two views -->
     <dimen name="spacing_huge">40dp</dimen>
+    <dimen name="spacing_xxxlarge">72dp</dimen>
     <dimen name="spacing_large">24dp</dimen>
     <dimen name="spacing_normal">16dp</dimen>
     <dimen name="spacing_medium">12dp</dimen>
@@ -23,4 +24,6 @@
     <dimen name="padding_custom_6dp">6dp</dimen>
 
     <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">20sp</dimen>
+    <dimen name="text_size_xlarge">40sp</dimen>
 </resources>

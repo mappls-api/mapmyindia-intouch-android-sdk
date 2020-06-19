@@ -5,7 +5,7 @@ import android.content.Context;
 import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
-import com.mmi.beacon.Config;
+import com.mapmyindia.sdk.tracking.Config;
 
 
 public class PreferenceHelper {
