@@ -77,10 +77,17 @@ allprojects {
     }  
 }
 
-//Add InTouch as a dependency
-
+//Add to build.gradle
+android{
+	-----
+	compileOptions {
+        	sourceCompatibility 1.8
+        	targetCompatibility 1.8
+    	}
+  	-----
+}
 dependencies {
-    implementation 'com.mapmyindia.sdk:intouch-sdk:0.1.0'
+    implementation 'com.mapmyindia.sdk:intouch-sdk:0.2.0'
     ...
 }
 ```
@@ -98,7 +105,7 @@ Initialize the SDK with your [Publishable Key](Test)
 ~~~
 ~~~java
 // IAuthListener - returns authorization results in the forms of callbacks.
-InTouch.initialize(<your publishable key>, new IAuthListener() {
+InTouch.initialize(<device name>, <your publishable key>, new IAuthListener() {
 	@Override
 	public void onSuccess() {
 			  //write your code here                      
