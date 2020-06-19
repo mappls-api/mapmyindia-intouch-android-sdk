@@ -22,8 +22,8 @@ import java.util.Objects;
 
 public class SetUpKeyFragment extends Fragment {
 
-    //private final String PUBLISHABLE_KEY = "<Your Publishable Key>?";
-    private final String PUBLISHABLE_KEY = "Y2M5ZTI4MjEtNDQyZi00NDUxLWE0MWYtZDdhNDg2ZDE4ZDA3";
+    private final String PUBLISHABLE_KEY = "<Your Publishable Key>?";
+  
 
     private FragmentKeyInitializationBinding mBinding;
 
