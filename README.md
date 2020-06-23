@@ -105,7 +105,7 @@ Initialize the SDK with your [Publishable Key](Test)
 ~~~
 ~~~java
 // IAuthListener - returns authorization results in the forms of callbacks.
-InTouch.initialize(<device name>, <your publishable key>, new IAuthListener() {
+InTouch.initialize(<device name>, <your client id>, <your client secret>, new IAuthListener() {
 	@Override
 	public void onSuccess() {
 			  //write your code here                      
