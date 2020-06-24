@@ -87,7 +87,7 @@ android{
   	-----
 }
 dependencies {
-    implementation 'com.mapmyindia.sdk:intouch-sdk:0.2.0'
+    implementation 'com.mapmyindia.sdk:intouch-sdk:0.3.0'
     ...
 }
 ```
