@@ -12,11 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.mapmyindia.intouchsdkdemo.databinding.FragmentTrackingBinding;
-import com.mapmyindia.intouchsdkdemo.device.DeviceViewModel;
 import com.mapmyindia.sdk.intouch.InTouch;
 import com.mapmyindia.sdk.tracking.Config;
 import com.mapmyindia.sdk.tracking.TrackingStateObserver;
@@ -25,9 +22,8 @@ import com.mapmyindia.sdk.tracking.utils.TrackingError;
 public class TrackingFragment extends Fragment implements TrackingStateObserver.OnTrackingStateChangeListener {
     private FragmentTrackingBinding mBinding;
 
-    private DeviceViewModel viewModel;
 
-    public static TrackingFragment newInstance() {
+    static TrackingFragment newInstance() {
 
         Bundle args = new Bundle();
 
@@ -40,7 +36,6 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
     public void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(DeviceViewModel.class);
     }
 
     @Nullable
@@ -96,7 +91,6 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
                     .build();
             InTouch.startTracking();
         } else {
-            //Toast.makeText(getActivity(), "Beacon already running", Toast.LENGTH_SHORT).show();
             stopTracking();
         }
     }

@@ -17,11 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <provider
-            android:name="com.mapmyindia.sdk.intouch.InTouchProvider"
-            android:authorities="${applicationId}.InTouchProvider"
-            android:enabled="true"
-            android:exported="false" />
+
     </application>
 
 </manifest>

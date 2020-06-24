@@ -53,7 +53,8 @@
             android:layout_marginLeft="@dimen/spacing_normal"
             android:layout_marginTop="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_normal"
-            android:layout_marginRight="@dimen/spacing_normal">
+            android:layout_marginRight="@dimen/spacing_normal"
+            android:visibility="gone">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/text_key"

@@ -14,7 +14,7 @@ import com.mapmyindia.intouchsdkdemo.databinding.FragmentMainBinding;
 
 public class MainFragment extends Fragment {
 
-    public static MainFragment newInstance() {
+    static MainFragment newInstance() {
         Bundle args = new Bundle();
         MainFragment fragment = new MainFragment();
         fragment.setArguments(args);

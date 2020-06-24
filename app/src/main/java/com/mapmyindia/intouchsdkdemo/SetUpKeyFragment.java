@@ -22,12 +22,12 @@ import java.util.Objects;
 
 public class SetUpKeyFragment extends Fragment {
 
-    //private final String PUBLISHABLE_KEY = "<Your Publishable Key>?";
-    private final String PUBLISHABLE_KEY = "Y2M5ZTI4MjEtNDQyZi00NDUxLWE0MWYtZDdhNDg2ZDE4ZDA3";
+    private final String KEY_CLIENT_ID = "<your client id>";
+    private final String KEY_CLIENT_SECRET = "<your client secret>";
 
     private FragmentKeyInitializationBinding mBinding;
 
-    public static SetUpKeyFragment newInstance() {
+    static SetUpKeyFragment newInstance() {
 
         Bundle args = new Bundle();
 
@@ -45,15 +45,12 @@ public class SetUpKeyFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_key_initialization, container, false);
-        mBinding.textKey.setText(PUBLISHABLE_KEY);
 
         mBinding.setOnClickInItKey(v -> {
             if (getActivity() == null)
                 return;
-            String key = mBinding.textKey.getText().toString();
-            if (!TextUtils.isEmpty(key)) {
-                //InTouch.initialize(key, mBinding.textName.getText().toString(), this);
-                InTouch.initialize(mBinding.textName.getText().toString(), key, new IAuthListener() {
+            if (!TextUtils.isEmpty(KEY_CLIENT_ID) && !TextUtils.isEmpty(KEY_CLIENT_SECRET)) {
+                InTouch.initialize(mBinding.textName.getText().toString(), KEY_CLIENT_ID, KEY_CLIENT_SECRET, new IAuthListener() {
                     @Override
                     public void onSuccess() {
                         if (getActivity() != null) {

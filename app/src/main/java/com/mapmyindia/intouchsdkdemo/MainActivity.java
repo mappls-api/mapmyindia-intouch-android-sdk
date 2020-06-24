@@ -46,27 +46,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (IllegalStateException e) {
                 ft.commitAllowingStateLoss();
             }
-        } /*else {
-            // Log.d(TAG, "replaceFragment: Fragment " + fragment.getClass().getSimpleName() + " is Already Added. !!!");
-        }*/
-    }
-
-    public void addFragment(Fragment fragment, boolean addToBackStack) {
-        Fragment f = getSupportFragmentManager().findFragmentByTag(fragment.getClass().getName());
-        if (f == null) {
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.add(mBinding.mainContainer.getId(), fragment, fragment.getClass().getName());
-            if (addToBackStack) {
-                ft.addToBackStack(fragment.getClass().getName());
-            }
-            try {
-                ft.commit();
-            } catch (IllegalStateException e) {
-                ft.commitAllowingStateLoss();
-            }
-        } /*else {
-            // Log.d(TAG, "replaceFragment: Fragment " + fragment.getClass().getSimpleName() + " is Already Added. !!!");
-        }*/
+        }
     }
 }
