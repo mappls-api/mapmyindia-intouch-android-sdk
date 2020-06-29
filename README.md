@@ -1,4 +1,3 @@
-
 # MapmyIndia Intouch Android SDK
 ## Introduction
 
@@ -66,47 +65,42 @@ The next few sections contain the code samples that you need to add to your acti
 
 
 ## <a name="AddInTouchSDK">Step 2. Add InTouch SDK</a>
-
-Add following lines to your applications  `build.gradle`:
+Follow these steps to add the SDK to your project –
+-   Create a new project in Android Studio
+-   Add MapmyIndia repository in your project level  `build.gradle`
 ```java
-// Import the SDK within your repositories block
 allprojects {  
     repositories {  
-        google()  
-        jcenter()  
+    
         maven {  
-            url 'https://maven.mapmyindia.com/repository/mapmyindia/'  
-  
-  }  
+            url 'https://maven.mapmyindia.com/repository/mapmyindia/' 
+        }  
     }  
 }
-
-//Add to build.gradle
-android{
-	-----
-	compileOptions {
-        	sourceCompatibility 1.8
-        	targetCompatibility 1.8
-    	}
-  	-----
-}
-dependencies {
-    implementation 'com.mapmyindia.sdk:intouch-sdk:0.3.0'
-    ...
-}
 ```
+-  Add below dependency in your app-level `build.gradle`
+```java
+implementation 'com.mapmyindia.sdk:intouch-sdk:0.4.0'
 ```
+- Add these permissions in your project
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+### Add Java 8 Support to the project
+```java
+compileOptions {
+      sourceCompatibility 1.8
+      targetCompatibility 1.8
+  }
+```
+```java
  Required Minimum sdk version
  minSdkVersion 16  
  ```
 ## Step 3: Initialize InTouch SDK
 
 Initialize the SDK with your Client ID and Client Secret.
-
-~~~xml
-// Add the following to your AndroidManifest.xml file.
-<uses-permission android:name="android.permission.INTERNET" />
-~~~
+####  Java
 ~~~java
 // IAuthListener - returns authorization results in the forms of callbacks.
 InTouch.initialize(<device name>, <your client id>, <your client secret>, new IAuthListener() {
@@ -123,15 +117,32 @@ InTouch.initialize(<device name>, <your client id>, <your client secret>, new IA
 });
 
 ~~~
-
+####  Kotlin
+```Kotlin
+InTouch.initialize(<device name>, <your client id>, <your client secret>, object : IAuthListener {  
+    override fun onSuccess() {  
+         //write your code here 
+    }  
+	override fun onError(reason: String?, errorIdentifier: String?, errorDescription: String?) {  
+       // reason gives the error type. 
+      // errorIdentifier gives information about error code. 
+      // errorDescription gives a message for a particular error. 
+    }  
+  
+})
+```
 
 ## <a name="StartTracking">Step 4: Start Tracking</a> 
 
 
 Track your app user's phone live location by using the below method.
-
+####  Java
  ```java
  InTouch.startTracking();
+```
+####  Kotlin
+```Kotlin
+InTouch.startTracking()
 ```
 
 
