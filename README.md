@@ -1,27 +1,30 @@
-
 # MapmyIndia Intouch Android SDK
 ## Introduction
 
-MapmyIndia InTouch SDK provides the Real Time Location Tracking for your apps. Track your app user's live location with simplified SDK integration for android. Highly customizable to specific needs.
+Get Real-Time Location Tracking for your apps with MapmyIndia InTouch SDK. Track a user's live location with our simplified InTouch SDK integration (for Android), highly customizable to your specific needs.
 
-InTouch SDK provides variety of events to provide better control and power to tracking. It gives readymade events to create Geo-fence, Event Alerts and Trails of Telematics/phone devices. Get location benefits catered to different domains like Logistics, delivery tracking, employee tracking, live location sharing etc.
+The InTouch SDK comes with a variety of events that enable better control and power over your tracking needs. Get readymade events to create Geo-Fences, Event Alerts, and Trails of telematics/ phone devices. Also get location benefits built for various applications including logistics, delivery tracking, employee tracking, and live location sharing.
 
-You can begin with [InTouch Demo App](#InTouchDemoApp) for your use cases. If you have an app already and want to leverage powerful features of InTouch,  [Integrate the InTouch SDK](#IntegrateIntouchSDK) with your application.
+To get started, explore the InTouch Demo App.
+
+Already have an application? Give it a boost with the powerful features of InTouch. Learn how to [Integrate the InTouch SDK](#IntegrateIntouchSDK)
 
 
--  [Publishable Key](#publishablekey): Please contact apisupport@mapmyindia.com to get your Publishable Key.
--   [Quick Start](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk#intouchdemo-app): Start with a ready-to-go app
--   [Integrate the SDK](#IntegrateIntouchSDK): Integrate the SDK into your app
--   [Dashboard](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki#-intouch-telematics-apis): See all your devices' locations on MapmyIndia InTouch Dashboard
+-  [Setup](#Setup): Please contact apisupport@mapmyindia.com to get the Intouch SDK authorisation for your Client ID and Client Secret.
+-  [Quick Start](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk#intouchdemo-app): Start with a ready-to-go app
+-  [Integrate the SDK](#IntegrateIntouchSDK): Integrate the SDK into your app
+-  [Dashboard](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki#-intouch-telematics-apis): See all your devices' locations on MapmyIndia InTouch Dashboard
 - [InTouch Telematics APIs](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki): Use InTouch APIs to get the details of the devices.
 
-## <a name="publishablekey">Get your Publishable Key. 
+## <a name="Setup">Setup. 
 
-We use your Publishable key to identify your account details and assign all your user's device under single account. 
+We use your Client ID to identify your account details and assign all your user's devices under a single account. 
 
-Please contact [apisupport@mapmyindia.com](mailto:apisupport@mapmyindia.com) to get your Publishable Key.
+To get your Outh2 Rest API Client ID and Client Secret please login to MapmyIndia [API Dashboard](https://www.mapmyindia.com/api/dashboard)  
 
-After getting the publishable key, you can [start with the InTouchDemo app](#InTouchDemoApp), or [Integrate the InTouch SDK](#IntegrateIntouchSDK) in your app.
+Please contact [apisupport@mapmyindia.com](mailto:apisupport@mapmyindia.com) to get InTouch SDK access to your Client ID
+
+After getting the access, you can [start with the InTouchDemo app](#InTouchDemoApp), or [Integrate the InTouch SDK](#IntegrateIntouchSDK) in your app.
 
 ## <a name= "InTouchDemoApp">InTouchDemo app</a>
 This guide allows you to add live location tracking to an Android app. [Android Studio](https://developer.android.com/studio/index.html) is the recommended development environment for building an app with the MapmyIndia InTouch SDK for Android.
@@ -41,7 +44,7 @@ This guide allows you to add live location tracking to an Android app. [Android 
 ## <a name="IntegrateIntouchSDK">Integrate the InTouch SDK
 -  [Add InTouch SDK](#AddInTouchSDK)
 -  [Start tracking](#StartTracking)
-- [InTouch Telematics APIs](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki#-intouch-telematics-apis)
+-  [InTouch Telematics APIs](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki#-intouch-telematics-apis)
 -  [Utility methods](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki/Utility-Methods)
 
 ## Step 1: Setup a project
@@ -62,47 +65,42 @@ The next few sections contain the code samples that you need to add to your acti
 
 
 ## <a name="AddInTouchSDK">Step 2. Add InTouch SDK</a>
-
-Add following lines to your applications  `build.gradle`:
+Follow these steps to add the SDK to your project –
+-   Create a new project in Android Studio
+-   Add MapmyIndia repository in your project level  `build.gradle`
 ```java
-// Import the SDK within your repositories block
 allprojects {  
     repositories {  
-        google()  
-        jcenter()  
+    
         maven {  
-            url 'https://maven.mapmyindia.com/repository/mapmyindia/'  
-  
-  }  
+            url 'https://maven.mapmyindia.com/repository/mapmyindia/' 
+        }  
     }  
 }
-
-//Add to build.gradle
-android{
-	-----
-	compileOptions {
-        	sourceCompatibility 1.8
-        	targetCompatibility 1.8
-    	}
-  	-----
-}
-dependencies {
-    implementation 'com.mapmyindia.sdk:intouch-sdk:0.2.0'
-    ...
-}
 ```
+-  Add below dependency in your app-level `build.gradle`
+```java
+implementation 'com.mapmyindia.sdk:intouch-sdk:0.4.0'
 ```
+- Add these permissions in your project
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+### Add Java 8 Support to the project
+```java
+compileOptions {
+      sourceCompatibility 1.8
+      targetCompatibility 1.8
+  }
+```
+```java
  Required Minimum sdk version
  minSdkVersion 16  
  ```
 ## Step 3: Initialize InTouch SDK
 
-Initialize the SDK with your [Publishable Key](Test)
-
-~~~xml
-// Add the following to your AndroidManifest.xml file.
-<uses-permission android:name="android.permission.INTERNET" />
-~~~
+Initialize the SDK with your Client ID and Client Secret.
+####  Java
 ~~~java
 // IAuthListener - returns authorization results in the forms of callbacks.
 InTouch.initialize(<device name>, <your client id>, <your client secret>, new IAuthListener() {
@@ -119,15 +117,32 @@ InTouch.initialize(<device name>, <your client id>, <your client secret>, new IA
 });
 
 ~~~
-
+####  Kotlin
+```Kotlin
+InTouch.initialize(<device name>, <your client id>, <your client secret>, object : IAuthListener {  
+    override fun onSuccess() {  
+         //write your code here 
+    }  
+	override fun onError(reason: String?, errorIdentifier: String?, errorDescription: String?) {  
+       // reason gives the error type. 
+      // errorIdentifier gives information about error code. 
+      // errorDescription gives a message for a particular error. 
+    }  
+  
+})
+```
 
 ## <a name="StartTracking">Step 4: Start Tracking</a> 
 
 
 Track your app user's phone live location by using the below method.
-
+####  Java
  ```java
  InTouch.startTracking();
+```
+####  Kotlin
+```Kotlin
+InTouch.startTracking()
 ```
 
 
