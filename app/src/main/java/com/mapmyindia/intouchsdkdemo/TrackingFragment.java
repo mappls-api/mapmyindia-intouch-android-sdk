@@ -22,16 +22,6 @@ import com.mapmyindia.sdk.tracking.utils.TrackingError;
 public class TrackingFragment extends Fragment implements TrackingStateObserver.OnTrackingStateChangeListener {
     private FragmentTrackingBinding mBinding;
 
-
-    static TrackingFragment newInstance() {
-
-        Bundle args = new Bundle();
-
-        TrackingFragment fragment = new TrackingFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
 
@@ -49,19 +39,14 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
                 R.drawable.ic_stat_phone_iphone,
                 "MapmyIndia Tracking Sdk",
                 "Tracking your position",
-                "com.mapmyindia.intouchsdkdemo.MainActivity");
+                "com.mapmyindia.intouchsdkdemo.MainActivity",
+                R.color.colorWhite);
 
         mBinding.setOnClickStartBeacon(v -> {
             if (getActivity() == null) {
                 return;
             }
             startTracking();
-        });
-        mBinding.setOnClickStopBeacon(v -> {
-            if (getActivity() == null) {
-                return;
-            }
-            stopTracking();
         });
         mBinding.setOnClickRedirect(v -> {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://intouch.mapmyindia.com")));
@@ -78,7 +63,6 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
 
     private void stopTracking() {
         InTouch.stopTracking();
-
     }
 
     private void startTracking() {
@@ -86,7 +70,7 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
             return;
         }
         if (!InTouch.isRunning()) {
-            Config config = new Config.Builder(getContext())
+            new Config.Builder(getContext())
                     .setPriority(InTouch.BEACON_PRIORITY_FAST)
                     .build();
             InTouch.startTracking();
@@ -98,6 +82,7 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
 
     @Override
     public void onError(TrackingError trackingError) {
+
     }
 
     @Override
@@ -112,5 +97,11 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
         if (getActivity() != null)
             Toast.makeText(getActivity(), "onTrackingStop", Toast.LENGTH_SHORT).show();
         mBinding.setIsBeaconEnabled(false);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mBinding = null;
     }
 }

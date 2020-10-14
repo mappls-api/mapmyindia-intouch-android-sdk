@@ -13,12 +13,9 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.mapmyindia.intouchsdkdemo.databinding.FragmentKeyInitializationBinding;
-import com.mapmyindia.intouchsdkdemo.utils.PreferenceHelper;
 import com.mapmyindia.sdk.intouch.InTouch;
 import com.mapmyindia.sdk.intouch.callbacks.IAuthListener;
 import com.mapmyindia.sdk.tracking.utils.AutoStartPermissionHelper;
-
-import java.util.Objects;
 
 public class SetUpKeyFragment extends Fragment {
 
@@ -27,14 +24,6 @@ public class SetUpKeyFragment extends Fragment {
 
     private FragmentKeyInitializationBinding mBinding;
 
-    static SetUpKeyFragment newInstance() {
-
-        Bundle args = new Bundle();
-
-        SetUpKeyFragment fragment = new SetUpKeyFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,29 +43,28 @@ public class SetUpKeyFragment extends Fragment {
                     @Override
                     public void onSuccess() {
                         if (getActivity() != null) {
-                            PreferenceHelper.getInstance().setInitializeSuccess(getActivity(), true);
-                            PreferenceHelper.getInstance().setDeviceName(getActivity(), Objects.requireNonNull(mBinding.textName.getText()).toString());
-                            ((MainActivity) getActivity()).replaceFragment(MainFragment.newInstance(), false);
+                            ((MainActivity) getActivity()).replaceFragment(new TrackingFragment());
                         }
                     }
 
                     @Override
                     public void onError(String reason, String errorIdentifier, String errorDescription) {
-                        if (getActivity() != null) {
-                            Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_SHORT).show();
-                        }
+                        Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show();
                     }
                 });
             } else {
                 mBinding.textKey.setError("Invalid Key");
             }
         });
-        if (
-
-                getActivity() != null) {
+        if (getActivity() != null) {
             AutoStartPermissionHelper.getPermissionHelper().getAutoStartPermission(getActivity());
         }
         return mBinding.getRoot();
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mBinding = null;
+    }
 }

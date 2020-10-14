@@ -15,10 +15,6 @@
             type="android.view.View.OnClickListener" />
 
         <variable
-            name="onClickStopBeacon"
-            type="android.view.View.OnClickListener" />
-
-        <variable
             name="onClickRedirect"
             type="android.view.View.OnClickListener" />
 

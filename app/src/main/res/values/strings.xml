@@ -25,6 +25,7 @@
     <string name="txt_initialize">Initialize</string>
     <string name="intouch_logo">Intouch Logo</string>
     <string name="intouch_live_location_tracking">Live Location Tracking</string>
+    <string name="txt_splash_screen">Splash Screen</string>
 
     <string-array name="vehicle_type">
         <item>Pedestrian</item>
