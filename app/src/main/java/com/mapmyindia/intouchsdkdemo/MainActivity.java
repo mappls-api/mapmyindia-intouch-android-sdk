@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public void replaceFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
                 .replace(mBinding.mainContainer.getId(), fragment, fragment.getClass().getName())
-                .addToBackStack(null)
+               // .addToBackStack(null)
                 .commit();
     }
 }

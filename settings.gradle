@@ -1,2 +1,3 @@
+include ':IntouchMobilesdk-live-release'
 include ':app'
 rootProject.name='InTouchSdkDemo'

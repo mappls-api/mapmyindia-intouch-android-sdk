@@ -49,7 +49,7 @@ public class SetUpKeyFragment extends Fragment {
 
                     @Override
                     public void onError(String reason, String errorIdentifier, String errorDescription) {
-                        Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(requireContext(), ":- " + reason + ";" + errorIdentifier + ";" + errorDescription, Toast.LENGTH_SHORT).show();
                     }
                 });
             } else {
