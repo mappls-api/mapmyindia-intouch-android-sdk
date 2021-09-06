@@ -80,7 +80,7 @@ allprojects {
 ```
 -  Add below dependency in your app-level `build.gradle`
 ```java
-implementation 'com.mapmyindia.sdk:intouch-sdk:0.5.0'
+implementation 'com.mapmyindia.sdk:intouch-sdk:0.8.0'
 ```
 - Add these permissions in your project
 ```xml
