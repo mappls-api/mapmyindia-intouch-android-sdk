@@ -14,6 +14,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.mapmyindia.intouchsdkdemo.databinding.FragmentTrackingBinding;
+import com.mapmyindia.sdk.bleplugin.BluetoothLEScanHelper;
 import com.mapmyindia.sdk.intouch.InTouch;
 import com.mapmyindia.sdk.tracking.Config;
 import com.mapmyindia.sdk.tracking.TrackingStateObserver;
