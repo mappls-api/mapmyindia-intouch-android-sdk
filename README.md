@@ -145,16 +145,15 @@ Track your app user's phone live location by using the below method.
 InTouch.startTracking()
 ```
 
+## <a name="StopTracking">Step 4: Stop Tracking</a> 
 
-
-
+####  Java
  ```java
  InTouch.stopTracking();
 ```
 ####  Kotlin
 ```Kotlin
 InTouch.stopTracking()
-
 ```
 
 ## <a name="Supportedplugin">Step 4: Supported Plugin's</a>
