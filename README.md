@@ -156,5 +156,5 @@ InTouch.startTracking()
 InTouch.stopTracking()
 ```
 
-## <a name="Supportedplugin">Step 4: Supported Plugin's</a>
+## <a name="Supportedplugin">Supported Plugin</a>
 ### - [MapmyIndia BLE Plugin](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki/MapmyIndia-BLE-Plugin)
