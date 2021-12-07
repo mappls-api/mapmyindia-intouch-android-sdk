@@ -1,9 +1,10 @@
+
 # MapmyIndia Intouch Android SDK
 ## Introduction
 
 Get Real-Time Location Tracking for your apps with MapmyIndia InTouch SDK. Track a user's live location with our simplified InTouch SDK integration (for Android), highly customizable to your specific needs.
 
-The InTouch SDK comes with a variety of events that enable better control and power over your tracking needs. Get readymade events to create Geo-Fences, Event Alerts, and Trails of telematics/ phone devices. Also get location benefits built for various applications including logistics, delivery tracking, employee tracking, and live location sharing.
+The InTouch SDK comes with a variety of events that enable better control and power over your tracking needs. Get ready made events to create,,  Geo-Fences, Event Alerts, and Trails of telematics/ phone devices. Also get location benefits built for various applications including logistics, delivery tracking, employee tracking, and live location sharing.
 
 To get started, explore the InTouch Demo App.
 
@@ -80,12 +81,9 @@ allprojects {
 ```
 -  Add below dependency in your app-level `build.gradle`
 ```java
-implementation 'com.mapmyindia.sdk:intouch-sdk:0.8.0'
+implementation 'com.mapmyindia.sdk:intouch-sdk:0.9.4'
 ```
-- Add these permissions in your project
-```xml
-<uses-permission android:name="android.permission.INTERNET"/>
-```
+
 ### Add Java 8 Support to the project
 ```java
 compileOptions {
@@ -95,17 +93,20 @@ compileOptions {
 ```
 ```java
  Required Minimum sdk version
- minSdkVersion 16  
+ minSdkVersion 18  
  ```
 ## Step 3: Initialize InTouch SDK
 
-Initialize the SDK with your Client ID and Client Secret.
+Initialization can be done either of the below mentioned method. Keep the same method accross your project. 
+
+#### Method 1:
+Initialize the SDK without unique Id. Intouch SDK will create a unique Id for the device. On every new device Login , a new device will be created and the new device id will be returned. 
 ####  Java
 ~~~java
 // IAuthListener - returns authorization results in the forms of callbacks.
 InTouch.initialize(<device name>, <your client id>, <your client secret>, new IAuthListener() {
 	@Override
-	public void onSuccess() {
+	public void onSuccess(Long id) {
 			  //write your code here                      
 	}
 	@Override
@@ -131,6 +132,41 @@ InTouch.initialize(<device name>, <your client id>, <your client secret>, object
   
 })
 ```
+### or 
+#### Method 2:
+Initialize the SDK with your own Unique Id. It is recommended to use when you maintain the unique Id for your users. Now when ever this Unique Id is passed same device id will be returned in the response, even if the user s logs from different devices. 
+####  Java
+~~~java
+// IAuthListener - returns authorization results in the forms of callbacks.
+InTouch.initialize(<device name>, <your client id>, <your client secret>, <uniqueId>, <fcmToken>, new IAuthListener() {
+	@Override
+	public void onSuccess(Long id) {
+			  //write your code here                      
+	}
+	@Override
+	public void onError(String reason, String identifier, String description) {
+	         // reason gives the error type. 
+            // errorIdentifier gives information about error code. 
+           // errorDescription gives a message for a particular error.
+	}
+});
+
+~~~
+####  Kotlin
+```Kotlin
+InTouch.initialize(<device name>, <your client id>, <your client secret>, <uniqueId>, <fcmToken>, object : IAuthListener {  
+    override fun onSuccess(Long entityId) {  
+         //write your code here 
+    }  
+	override fun onError(reason: String?, errorIdentifier: String?, errorDescription: String?) {  
+       // reason gives the error type. 
+      // errorIdentifier gives information about error code. 
+      // errorDescription gives a message for a particular error. 
+    }  
+  
+})
+```
+On sucessful registration you will get the Id, use this Id in APIs to get the live location or to create trips against the user.
 
 ## <a name="StartTracking">Step 4: Start Tracking</a> 
 
@@ -142,8 +178,20 @@ Track your app user's phone live location by using the below method.
 ```
 ####  Kotlin
 ```Kotlin
-InTouch.startTracking()
+InTouch.startTracking
 ```
 
+## <a name="StopTracking">Step 4: Stop Tracking</a> 
 
+####  Java
+ ```java
+ InTouch.stopTracking();
+```
+####  Kotlin
+```Kotlin
+InTouch.stopTracking
+```
+
+## <a name="Supportedplugin">Supported Plugin</a>
+### - [MapmyIndia BLE Plugin](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki/MapmyIndia-BLE-Plugin)
 
