@@ -81,12 +81,9 @@ allprojects {
 ```
 -  Add below dependency in your app-level `build.gradle`
 ```java
-implementation 'com.mapmyindia.sdk:intouch-sdk:0.9.3'
+implementation 'com.mapmyindia.sdk:intouch-sdk:0.9.4'
 ```
-- Add these permissions in your project
-```xml
-<uses-permission android:name="android.permission.INTERNET"/>
-```
+
 ### Add Java 8 Support to the project
 ```java
 compileOptions {
