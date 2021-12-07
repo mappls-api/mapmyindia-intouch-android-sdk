@@ -32,17 +32,7 @@
             android:padding="@dimen/padding_normal">
 
 
-            <TextView
-                android:id="@+id/txt_device_code"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
 
-                android:textSize="20sp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Device code" />
 
             <ImageView
                 android:id="@+id/intouch_logo_img"
@@ -57,17 +47,48 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/intouch_logo_img"
+                android:layout_marginTop="@dimen/spacing_small"
                 android:gravity="center"
                 android:text="@string/intouch_live_location_tracking"
-                android:textSize="@dimen/text_size_medium"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:layout_below="@+id/intouch_logo_img"/>
+                android:textSize="@dimen/text_size_medium" />
+            <TextView
+                android:id="@+id/txt_device_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="14sp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_below="@+id/textView2"
+                tools:text="Device code" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutMacId"
+                isEnable="@{!isBeaconEnabled,  default = false}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_device_code"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_mac_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/txt_enter_mac_id"
+                    android:visibility="visible" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/button_start_beacon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
                 android:layout_marginBottom="@dimen/spacing_large"
                 android:background="@drawable/text_field_border"
                 bind:buttonDrawableLeft="@{!isBeaconEnabled ? @drawable/play_arrow_24_px : @drawable/stop_24_px}"
@@ -80,8 +101,7 @@
                 android:paddingBottom="@dimen/padding_custom_6dp"
                 bind:text="@{!isBeaconEnabled ? @string/txt_start_tracking : @string/txt_stop_tracking}"
                 android:textAllCaps="false"
-                android:textSize="@dimen/text_size_medium"
-                android:layout_centerInParent="true"/>
+                android:textSize="@dimen/text_size_medium" />
 
             <TextView
                 android:id="@+id/button_redirect_to_intouch"

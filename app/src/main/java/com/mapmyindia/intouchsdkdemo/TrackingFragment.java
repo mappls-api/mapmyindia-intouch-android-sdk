@@ -3,6 +3,7 @@ package com.mapmyindia.intouchsdkdemo;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.mapmyindia.intouchsdkdemo.databinding.FragmentTrackingBinding;
+import com.mapmyindia.sdk.bleplugin.BleScanResultCallback;
 import com.mapmyindia.sdk.bleplugin.BluetoothLEScanHelper;
 import com.mapmyindia.sdk.intouch.InTouch;
 import com.mapmyindia.sdk.tracking.Config;
@@ -22,6 +24,9 @@ import com.mapmyindia.sdk.tracking.utils.TrackingError;
 
 public class TrackingFragment extends Fragment implements TrackingStateObserver.OnTrackingStateChangeListener {
     private FragmentTrackingBinding mBinding;
+    private BleScanResultCallback mBleScanResultCallback = null;
+    // Enter user device Mac Address
+    private String bleMacAddress = "";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,8 +38,8 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_tracking, container, false);
-
-
+        String bleAddress = BluetoothLEScanHelper.getInstance().getBleDeviceMacId();
+        mBinding.textMacId.setText(bleAddress != null ? bleAddress : bleMacAddress);
         mBinding.setIsBeaconEnabled(InTouch.isRunning());
         InTouch.addNotificationIconsAndTitle(R.drawable.ic_stat_phone_iphone,
                 R.drawable.ic_stat_phone_iphone,
@@ -47,12 +52,22 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
             if (getActivity() == null) {
                 return;
             }
-            startTracking();
+            if (TextUtils.isEmpty(mBinding.textMacId.getText().toString())) {
+                Toast.makeText(requireActivity(), "Please enter Ble device mac address", Toast.LENGTH_SHORT).show();
+            } else {
+                startTracking();
+            }
         });
         mBinding.setOnClickRedirect(v -> {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://intouch.mapmyindia.com")));
         });
         InTouch.addTrackingStateListener(this);
+        if (mBleScanResultCallback == null) {
+            mBleScanResultCallback = externalSensor -> {
+                mBinding.txtDeviceCode.setText("\nTemperature:- " + externalSensor.getTemperature() + "\nHumidity:- " + externalSensor.getHumidity());
+            };
+            BluetoothLEScanHelper.getInstance().addBleScanResultListener(mBleScanResultCallback);
+        }
         return mBinding.getRoot();
     }
 
@@ -74,6 +89,7 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
             new Config.Builder(getContext())
                     .setPriority(InTouch.BEACON_PRIORITY_FAST)
                     .build();
+            BluetoothLEScanHelper.getInstance().setBleDeviceMacId(mBinding.textMacId.getText().toString());
             InTouch.startTracking();
         } else {
             stopTracking();
@@ -104,5 +120,9 @@ public class TrackingFragment extends Fragment implements TrackingStateObserver.
     public void onDestroyView() {
         super.onDestroyView();
         mBinding = null;
+        InTouch.removeTrackingStateListener(this);
+        BluetoothLEScanHelper.getInstance().removeBleScanResultListener(mBleScanResultCallback);
+        mBleScanResultCallback = null;
+
     }
 }

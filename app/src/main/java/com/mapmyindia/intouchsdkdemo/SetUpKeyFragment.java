@@ -41,11 +41,12 @@ public class SetUpKeyFragment extends Fragment {
             if (!TextUtils.isEmpty(KEY_CLIENT_ID) && !TextUtils.isEmpty(KEY_CLIENT_SECRET)) {
                 InTouch.initialize(mBinding.textName.getText().toString(), KEY_CLIENT_ID, KEY_CLIENT_SECRET, new IAuthListener() {
                     @Override
-                    public void onSuccess() {
+                    public void onSuccess(Long id) {
                         if (getActivity() != null) {
                             ((MainActivity) getActivity()).replaceFragment(new TrackingFragment());
                         }
                     }
+
 
                     @Override
                     public void onError(String reason, String errorIdentifier, String errorDescription) {

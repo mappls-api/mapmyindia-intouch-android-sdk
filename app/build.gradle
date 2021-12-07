@@ -7,7 +7,7 @@ android {
         minSdkVersion 18
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0"
+        versionName "2.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -27,12 +27,12 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation "com.google.android.material:material:1.2.1"
+    implementation "com.google.android.material:material:1.4.0"
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
-    implementation 'com.mapmyindia.sdk:intouch-sdk:0.9.0'
+    implementation 'com.mapmyindia.sdk:intouch-sdk:0.9.4'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.mapmyindia.sdk:ble_plugin:0.1.0'
+    implementation 'com.mapmyindia.sdk:ble-plugin:0.1.3'
 }

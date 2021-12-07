@@ -26,7 +26,7 @@
     <string name="intouch_logo">Intouch Logo</string>
     <string name="intouch_live_location_tracking">Live Location Tracking</string>
     <string name="txt_splash_screen">Splash Screen</string>
-
+    <string name="txt_enter_mac_id">Enter Mac Address</string>
     <string-array name="vehicle_type">
         <item>Pedestrian</item>
         <item>2 wheeler</item>
