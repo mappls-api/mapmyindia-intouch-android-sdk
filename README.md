@@ -195,3 +195,5 @@ InTouch.stopTracking
 ## <a name="Supportedplugin">Supported Plugin</a>
 ### - [MapmyIndia BLE Plugin](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki/MapmyIndia-BLE-Plugin)
 
+## IMPORTANT
+> To read further, please refer to documentation available here: https://github.com/mappls-api/mapmyindia-intouch-android-sdk/wiki
