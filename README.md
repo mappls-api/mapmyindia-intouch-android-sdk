@@ -200,7 +200,7 @@ InTouch.stopTracking
 ## IMPORTANT
 > To read further, please refer to documentation available here: https://github.com/mappls-api/Mappls-intouch-android-sdk/wiki
 
-	<br><br><br>
+<br><br><br>
 
 For any queries and support, please contact: 
 
