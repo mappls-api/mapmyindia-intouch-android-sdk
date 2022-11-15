@@ -1,9 +1,9 @@
 
 
-# Mappls Intouch Android SDK
+# MapmyIndia Intouch Android SDK
 ## Introduction
 
-Get Real-Time Location Tracking for your apps with Mappls InTouch SDK. Track a user's live location with our simplified InTouch SDK integration (for Android), highly customizable to your specific needs.
+Get Real-Time Location Tracking for your apps with MapmyIndia InTouch SDK. Track a user's live location with our simplified InTouch SDK integration (for Android), highly customizable to your specific needs.
 
 The InTouch SDK comes with a variety of events that enable better control and power over your tracking needs. Get ready made events to create,,  Geo-Fences, Event Alerts, and Trails of telematics/ phone devices. Also get location benefits built for various applications including logistics, delivery tracking, employee tracking, and live location sharing.
 
@@ -13,42 +13,41 @@ Already have an application? Give it a boost with the powerful features of InTou
 
 
 -  [Setup](#Setup): Please contact apisupport@mapmyindia.com to get the Intouch SDK authorisation for your Client ID and Client Secret.
--  [Quick Start](https://github.com/Mappls/Mappls-intouch-android-sdk#intouchdemo-app): Start with a ready-to-go app
+-  [Quick Start](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk#intouchdemo-app): Start with a ready-to-go app
 -  [Integrate the SDK](#IntegrateIntouchSDK): Integrate the SDK into your app
--  [Dashboard](https://github.com/Mappls/Mappls-intouch-android-sdk/wiki#-intouch-telematics-apis): See all your devices' locations on Mappls InTouch Dashboard
-- [InTouch Telematics APIs](https://github.com/Mappls/Mappls-intouch-android-sdk/wiki): Use InTouch APIs to get the details of the devices.
+-  [Dashboard](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki#-intouch-telematics-apis): See all your devices' locations on MapmyIndia InTouch Dashboard
+- [InTouch Telematics APIs](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki): Use InTouch APIs to get the details of the devices.
 
 ## <a name="Setup">Setup. 
 
 We use your Client ID to identify your account details and assign all your user's devices under a single account. 
 
-To get your Outh2 Rest API Client ID and Client Secret please login to MapmyIndia [API Dashboard](https://about.mappls.com/api/signup)  
- 
+To get your Outh2 Rest API Client ID and Client Secret please login to MapmyIndia [API Dashboard](https://www.mapmyindia.com/api/dashboard)  
 
 Please contact [apisupport@mapmyindia.com](mailto:apisupport@mapmyindia.com) to get InTouch SDK access to your Client ID
 
 After getting the access, you can [start with the InTouchDemo app](#InTouchDemoApp), or [Integrate the InTouch SDK](#IntegrateIntouchSDK) in your app.
 
 ## <a name= "InTouchDemoApp">InTouchDemo app</a>
-This guide allows you to add live location tracking to an Android app. [Android Studio](https://developer.android.com/studio/index.html) is the recommended development environment for building an app with the Mappls InTouch SDK for Android.
+This guide allows you to add live location tracking to an Android app. [Android Studio](https://developer.android.com/studio/index.html) is the recommended development environment for building an app with the MapmyIndia InTouch SDK for Android.
 #### Step 1. Download the InTouchDemo App.
-[Click here](https://github.com/mappls-api/mapmyindia-intouch-android-sdk/archive/master.zip) to download the InTouchDemo App Project. Open this project in [Android Studio](https://developer.android.com/studio/index.html)
+[Click here](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/archive/master.zip) to download the InTouchDemo App Project. Open this project in [Android Studio](https://developer.android.com/studio/index.html)
 
 #### Step 2. Set your Publishable key
 
-1.  Add the publishable key to  [SetUpKeyFragment Fragment](https://github.com/mappls-api/mapmyindia-intouch-android-sdk)  file.
+1.  Add the publishable key to  [SetUpKeyFragment Fragment](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk)  file.
     
 2.  Run project on your device using simulator instance.
     
 3.  Go through run-time [permission flow](https://developer.android.com/training/permissions/requesting) (applicable for Android M and later).
 
-#### Step 3. Check your location on the InTouch [dashboard](https://intouch.mappls.com/nextgen)
+#### Step 3. Check your location on the InTouch [dashboard](https://intouch.mapmyindia.com/nextgen)
 
 ## <a name="IntegrateIntouchSDK">Integrate the InTouch SDK
 -  [Add InTouch SDK](#AddInTouchSDK)
 -  [Start tracking](#StartTracking)
--  [InTouch Telematics APIs](https://github.com/mappls-api/mapmyindia-intouch-android-sdk/wiki#-intouch-telematics-apis)
--  [Utility methods](https://github.com/mappls-api/mapmyindia-intouch-android-sdk/wiki/Utility-Methods)
+-  [InTouch Telematics APIs](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki#-intouch-telematics-apis)
+-  [Utility methods](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki/Utility-Methods)
 
 ## Step 1: Setup a project
 
@@ -64,26 +63,26 @@ This guide allows you to add live location tracking to an Android app. [Android 
 
 Android Studio starts Gradle and builds your project. This may take a few seconds. For more information about creating a project in Android Studio, see the  [Android Studio documentation](https://developer.android.com/studio/projects/create-project.html).
 
-The next few sections contain the code samples that you need to add to your activity's java file as well as its xml layout file for creating an app with Mappls InTouch SDK for live tracking.
+The next few sections contain the code samples that you need to add to your activity's java file as well as its xml layout file for creating an app with MapmyIndia InTouch SDK for live tracking.
 
 
 ## <a name="AddInTouchSDK">Step 2. Add InTouch SDK</a>
 Follow these steps to add the SDK to your project –
 -   Create a new project in Android Studio
--   Add Mappls repository in your project level  `build.gradle`
+-   Add MapmyIndia repository in your project level  `build.gradle`
 ```java
 allprojects {  
     repositories {  
     
         maven {  
-            url 'https://maven.mappls.com/repository/mappls/' 
+            url 'https://maven.mapmyindia.com/repository/mapmyindia/' 
         }  
     }  
 }
 ```
 -  Add below dependency in your app-level `build.gradle`
 ```java
-implementation 'com.mappls.sdk:intouch-sdk:1.2.0'
+implementation 'com.mapmyindia.sdk:intouch-sdk:0.9.4'
 ```
 
 ### Add Java 8 Support to the project
@@ -195,29 +194,7 @@ InTouch.stopTracking
 ```
 
 ## <a name="Supportedplugin">Supported Plugin</a>
-### - [Mappls BLE Plugin](https://github.com/Mappls/Mappls-intouch-android-sdk/wiki/Mappls-BLE-Plugin)
+### - [MapmyIndia BLE Plugin](https://github.com/MapmyIndia/mapmyindia-intouch-android-sdk/wiki/MapmyIndia-BLE-Plugin)
 
 ## IMPORTANT
 > To read further, please refer to documentation available here: https://github.com/mappls-api/mapmyindia-intouch-android-sdk/wiki
-
-<br><br><br>
-
-For any queries and support, please contact: 
-
-[<img src="https://about.mappls.com/images/mappls-logo.svg" height="40"/> </p>](https://about.mappls.com/api/)
-Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
-
-
-![](https://www.mapmyindia.com/api/img/icons/support.png)
-[Support](https://about.mappls.com/contact/)
-Need support? contact us!
-
-<br></br>
-<br></br>
-
-[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mappls-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](https://about.mappls.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/Mappls-api)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
-
-
-
-[<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/Mapplsofficial)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/mappls)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mappls/)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/channel/UCAWvWsh-dZLLeUU7_J9HiOA)
-
