@@ -198,7 +198,7 @@ InTouch.stopTracking
 ### - [Mappls BLE Plugin](https://github.com/Mappls/Mappls-intouch-android-sdk/wiki/Mappls-BLE-Plugin)
 
 ## IMPORTANT
-> To read further, please refer to documentation available here: https://github.com/mappls-api/Mappls-intouch-android-sdk/wiki
+> To read further, please refer to documentation available here: https://github.com/mappls-api/mapmyindia-intouch-android-sdk/wiki
 
 <br><br><br>
 
