@@ -1,4 +1,5 @@
-
+# DEPRECATED
+This repository is no longer in active development & use.
 
 # MapmyIndia Intouch Android SDK
 ## Introduction
